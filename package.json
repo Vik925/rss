@@ -1,0 +1,23 @@
+{
+  "name": "rss_apllication",
+  "version": "1.0.0",
+  "description": "Задача: Реализуйте на языке JavaScript простейший интерфейс для чтения RSS-каналов (в любой из версий форматов RSS или Atom, одной на выбор).",
+  "main": "rss.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vik925/rss.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vik925/rss/issues"
+  },
+  "homepage": "https://github.com/Vik925/rss#readme",
+  "dependencies": {
+    "fast-xml-parser": "^3.17.4",
+    "gitignore": "^0.6.0"
+  }
+}
