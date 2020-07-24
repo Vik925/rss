@@ -1,19 +1,19 @@
 function srr(){
     const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser())
+
+
+    const cors = 'https://cors-anywhere.herokuapp.com'
+    const config = {
+        method:'POST',
+        mode: 'no-cors'
+    }
+
+    const url = 'https://hacks.mozilla.org'
+
+
     /* Fetch URLs from JSON */
-    fetch('urls.json').then((res) => {
-        res.text().then((data) => {
-            var frag = document.createDocumentFragment()
-            var hasBegun = true
-            JSON.parse(data).urls.forEach((u) => {
-                try {
-                    var url = new URL(u)
-                }
-                catch (e) {
-                    console.error('URL invalid');
-                    return
-                }
-                fetch(url).then((res) => {
+   
+                fetch(`${cors}/${url}`, config).then((res) => {
                     res.text().then((htmlTxt) => {
                         /* Extract the RSS Feed URL from the website */
                         try {
@@ -54,9 +54,7 @@ function srr(){
                         }).catch(() => console.error('Error in fetching the RSS feed'))
                     })
                 }).catch(() => console.error('Error in fetching the website'))
-            })
-        })
-    }).catch(() => console.error('Error in fetching the URLs json'))
+  
 };
 
 
