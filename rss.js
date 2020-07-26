@@ -17,7 +17,7 @@ async function srr(){
 
       
       const parser = new DOMParser();
-      const doc = parser.parseFromString.bind(xmlTxt,"text/xml");
+      const doc = parser.parseFromString(xmlTxt,"text/xml");
       
 
      // const DOMPARSER = new DOMParser().parseFromString.bind(new DOMParser());
