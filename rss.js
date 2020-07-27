@@ -1,4 +1,5 @@
-import parser from 'https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.17.1/parser.min.js';
+import parser from 'https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.17.1/parser.js';
+
   
   const cors = 'https://cors-anywhere.herokuapp.com';
   const url = 'https://www.hongkiat.com/blog/feed/';
@@ -19,10 +20,7 @@ import parser from 'https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.17.
     
     const xmlTxt = await response.text();
   
-   parser = new DOMParser();
-   doc = parser.parseFromString(xmlTxt,"text/xml");
-
-   const options = {
+    const options = {
     attributeNamePrefix: '@_',
     attrNodeName: 'attr', //default is 'false'
     textNodeName: '#text',
@@ -40,15 +38,17 @@ import parser from 'https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.17.
     stopNodes: ['parse-me-as-string'],
   };
 
-  const jsonObj = await parser.parse(xmlData, options);
+  const jsonObj = await parser.parse(xmlTxt, options);
 
   const result = jsonObj;
   return result;
 
-  
   /*  const frag = document.createDocumentFragment();
     frag.appendChild(heading);
     //console.log(frag);
+
+    parser = new DOMParser();
+    doc = parser.parseFromString(xmlTxt,"text/xml");
 
    doc.querySelectorAll('item').forEach((item) => {
     let temp = document.importNode(document.querySelector('template').content, true);
@@ -58,11 +58,9 @@ import parser from 'https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.17.
     t('a').textContent = t('a').href = !!i('link') ? i('link').textContent : '#'
     t('p').innerHTML = !!i('description') ? i('description').textContent : '-'
     t('h3').textContent = url;
-    frag.appendChild(temp);
-}); 
+    frag.appendChild(temp); 
+}); */
   
-*/  
-		
 };
 
 fetching();
