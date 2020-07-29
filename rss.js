@@ -20,14 +20,15 @@ function srr(){
     let namber = i - 1;
     let idDiv = document.getElementById(namber);
     let tit =  docXml.getElementsByTagName("title")[i].childNodes[0].nodeValue; 
+    let url = docXml.getElementsByTagName('link')[i].childNodes[0].nodeValue; 
     
-    idDiv.querySelector('h2').innerHTML =
-    `Article №${namber}  «${tit}»`;
-    idDiv.querySelector('a').innerHTML =
-    docXml.getElementsByTagName('link')[i].childNodes[0].nodeValue; 
-    idDiv.querySelector('p').innerHTML =
-    docXml.getElementsByTagName('description')[i].childNodes[0].nodeValue; 
+    idDiv.querySelector('h2').innerHTML = `Article №${namber}  «${tit}»`;
+    idDiv.querySelector('a').innerHTML = url; 
+    idDiv.querySelector('a').href = url; 
+    idDiv.querySelector('p').innerHTML = docXml.getElementsByTagName('description')[i].childNodes[0].nodeValue; 
     };
   };
   fetching();
 };
+
+
